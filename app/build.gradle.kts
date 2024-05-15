@@ -40,7 +40,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "com.damar.AppKt"
+    mainClass = "com.damar.poker.AppKt"
 }
 
 tasks.named<Test>("test") {

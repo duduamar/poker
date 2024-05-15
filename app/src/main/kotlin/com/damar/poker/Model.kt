@@ -1,40 +1,40 @@
 package com.damar.poker
 
-enum class Rank(val value: Int) {
-  TWO(2),
-  THREE(3),
-  FOUR(4),
-  FIVE(5),
-  SIX(6),
-  SEVEN(7),
-  EIGHT(8),
-  NINE(9),
-  TEN(10),
-  JACK(11),
-  QUEEN(12),
-  KING(13),
-  ACE(14);
+import java.util.Locale
+
+enum class Rank(val value: Int, val str: String) {
+  TWO(2, "2"),
+  THREE(3, "3"),
+  FOUR(4, "4"),
+  FIVE(5, "5"),
+  SIX(6, "6"),
+  SEVEN(7, "7"),
+  EIGHT(8, "8"),
+  NINE(9, "9"),
+  TEN(10, "T"),
+  JACK(11, "J"),
+  QUEEN(12, "Q"),
+  KING(13, "K"),
+  ACE(14, "A");
+
+  override fun toString(): String {
+    return str
+  }
 }
 
 enum class Suit {
   HEARTS,
   DIAMONDS,
   CLUBS,
-  SPADES
+  SPADES;
+
+  override fun toString(): String {
+    return name[0].lowercase()
+  }
 }
 
-enum class HandRank(val value: Int) {
-  HIGH_CARD(1),
-  ONE_PAIR(2),
-  TWO_PAIR(3),
-  THREE_OF_A_KIND(4),
-  STRAIGHT(5),
-  FLUSH(6),
-  FULL_HOUSE(7),
-  FOUR_OF_A_KIND(8),
-  STRAIGHT_FLUSH(9),
-  ROYAL_FLUSH(10)
+data class Card(val rank: Rank, val suit: Suit) {
+  override fun toString(): String {
+    return rank.toString() + suit.toString()
+  }
 }
-
-
-data class Card(val rank: Rank, val suit: Suit)

@@ -10,6 +10,16 @@ class PokerHand private constructor(val cards: List<Card>) : Comparable<PokerHan
     fun fromList(cards : List<Card>): PokerHand {
       return PokerHand(cards.sortedBy { it.rank.ordinal })
     }
+
+    fun createDeck(): List<Card> {
+      val deck = mutableListOf<Card>()
+      for (suit in Suit.entries) {
+        for (rank in Rank.entries) {
+          deck.add(Card(rank, suit))
+        }
+      }
+      return deck
+    }
   }
 
   val isStraightFlush; get() = isStraight && isFlush
