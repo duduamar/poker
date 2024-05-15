@@ -7,13 +7,13 @@ class HandEvaluator {
   }
 
   // Helper function to generate combinations of cards
-  fun combinations(cards: List<Card>, size: Int): List<PokerHand> {
+  private fun combinations(cards: List<Card>, size: Int): List<PokerHand> {
     val result = mutableListOf<PokerHand>()
     generateCombinations(cards, size, 0, mutableListOf(), result)
     return result
   }
 
-  fun generateCombinations(cards: List<Card>, size: Int, start: Int, current: MutableList<Card>, result: MutableList<PokerHand>) {
+  private fun generateCombinations(cards: List<Card>, size: Int, start: Int, current: MutableList<Card>, result: MutableList<PokerHand>) {
     if (current.size == size) {
       result.add(PokerHand.fromList(current.toList()))
       return
